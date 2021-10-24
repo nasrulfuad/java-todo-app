@@ -34,7 +34,7 @@ public class TodoListServiceImpl implements TodoListService {
 
     todoListRepository.store(todoList);
 
-    System.out.println("Sukses menambahkan todo : " + todo);
+    System.out.println("BERHASIL menambahkan todo : " + todo);
   }
 
   @Override

@@ -9,7 +9,7 @@ import views.TodoListView;
 public class TodoListViewTest {
 
   public static void main(String[] args) {
-    testView();
+    testStore();
   }
 
   public static void testView() {
@@ -20,6 +20,18 @@ public class TodoListViewTest {
     todoListService.store("Belajar java dasar");
     todoListService.store("Belajar java oop");
     todoListService.store("Belajar java standard classes");
+
+    todoListView.view();
+  }
+
+  public static void testStore() {
+    TodoListRepository todoListRepository = new TodoListRepositoryImpl();
+    TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+    TodoListView todoListView = new TodoListView(todoListService);
+
+    todoListView.store();
+
+    todoListView.store();
 
     todoListView.view();
   }
