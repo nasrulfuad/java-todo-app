@@ -4,10 +4,10 @@ import entities.TodoList;
 
 public interface TodoListRepository {
 
-    TodoList[] getAll();
+  TodoList[] getAll();
 
-    void add(TodoList todoList);
+  void store(TodoList todoList);
 
-    void remove(Integer number);
+  void remove(Integer number);
 
 }

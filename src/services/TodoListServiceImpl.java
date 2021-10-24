@@ -5,35 +5,39 @@ import repositories.TodoListRepository;
 
 public class TodoListServiceImpl implements TodoListService {
 
-    private TodoListRepository todoListRepository;
+  private TodoListRepository todoListRepository;
 
-    public TodoListServiceImpl(TodoListRepository todoListRepository) {
-        this.todoListRepository = todoListRepository;
+  public TodoListServiceImpl(TodoListRepository todoListRepository) {
+    this.todoListRepository = todoListRepository;
+  }
+
+  @Override
+  public void view() {
+    TodoList[] model = todoListRepository.getAll();
+
+    System.out.println("Todo List :");
+
+    for (var i = 0; i < model.length; i++) {
+      var todoList = model[i];
+      var no = i + 1;
+
+      if (todoList != null) {
+        System.out.println(no + ". " + todoList.getTodo());
+      }
     }
+  }
 
-    @Override
-    public void view() {
-        TodoList[] model = todoListRepository.getAll();
+  @Override
+  public void store(String todo) {
+    TodoList todoList = new TodoList(todo);
 
-        System.out.println("Todo List :");
+    todoListRepository.store(todoList);
 
-        for (var i = 0; i < model.length; i++) {
-            var todoList = model[i];
-            var no = i + 1;
+    System.out.println("Sukses menambahkan todo : " + todo);
+  }
 
-            if (todoList != null) {
-                System.out.println(no + ". " + todoList.getTodo());
-            }
-        }
-    }
+  @Override
+  public void remove(Integer number) {
 
-    @Override
-    public void store(String todo) {
-
-    }
-
-    @Override
-    public void remove(Integer number) {
-
-    }
+  }
 }

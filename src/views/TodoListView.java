@@ -2,16 +2,16 @@ package views;
 
 public class TodoListView {
 
-    public void view() {
+  public void view() {
 
-    }
+  }
 
-    public void store() {
+  public void store() {
 
-    }
+  }
 
-    public void remove() {
+  public void remove() {
 
-    }
+  }
 
 }
