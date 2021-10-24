@@ -3,11 +3,11 @@ package repositories;
 import entities.TodoList;
 
 public class TodoListRepositoryImpl implements TodoListRepository {
-    private TodoList[] data = new TodoList[10];
+    public TodoList[] data = new TodoList[10];
 
     @Override
     public TodoList[] getAll() {
-        return new TodoList[0];
+        return data;
     }
 
     @Override
