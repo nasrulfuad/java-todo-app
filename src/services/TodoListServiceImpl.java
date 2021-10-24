@@ -2,6 +2,7 @@ package services;
 
 import entities.TodoList;
 import repositories.TodoListRepository;
+import repositories.TodoListRepositoryImpl;
 
 public class TodoListServiceImpl implements TodoListService {
 
@@ -38,6 +39,12 @@ public class TodoListServiceImpl implements TodoListService {
 
   @Override
   public void remove(Integer number) {
+    boolean success = todoListRepository.remove(number);
 
+    if (success) {
+      System.out.println("BERHASIL menghapus todo : " + number);
+    } else {
+      System.out.println("GAGAL menghapus todo : " + number);
+    }
   }
 }

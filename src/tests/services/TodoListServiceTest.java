@@ -9,7 +9,7 @@ import services.TodoListServiceImpl;
 public class TodoListServiceTest {
 
   public static void main(String[] args) {
-    testStore();
+    testRemove();
   }
 
   public static void testView() {
@@ -31,6 +31,33 @@ public class TodoListServiceTest {
     todoListService.store("Belajar java dasar");
     todoListService.store("Belajar java oop");
     todoListService.store("Belajar java standard classes");
+
+    todoListService.view();
+  }
+
+  public static void testRemove() {
+    TodoListRepository todoListRepository = new TodoListRepositoryImpl();
+    TodoListService todoListService = new TodoListServiceImpl(todoListRepository);
+
+    todoListService.store("Belajar java dasar");
+    todoListService.store("Belajar java oop");
+    todoListService.store("Belajar java standard classes");
+
+    todoListService.view();
+
+    todoListService.remove(5);
+    todoListService.remove(2);
+
+    todoListService.view();
+    todoListService.remove(2);
+
+    todoListService.view();
+
+    todoListService.remove(2);
+
+    todoListService.view();
+
+    todoListService.remove(1);
 
     todoListService.view();
   }

@@ -8,6 +8,6 @@ public interface TodoListRepository {
 
   void store(TodoList todoList);
 
-  void remove(Integer number);
+  boolean remove(Integer number);
 
 }
